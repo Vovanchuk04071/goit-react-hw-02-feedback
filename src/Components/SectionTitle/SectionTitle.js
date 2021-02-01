@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../Feedback/Feedback.module.css";
+import style from "./SectionTitle.module.css";
 
 const SectionTitle = ({ title, children }) => {
   return (
