@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Feedback.module.css";
 import PropTypes from "prop-types";
 
-const Feedback = ({ options, onSaveFeedback }) => {
+const FeedbackActions = ({ options, onSaveFeedback }) => {
   return (
     <div className={style.button}>
       {options.map((name) => (
@@ -19,9 +19,9 @@ const Feedback = ({ options, onSaveFeedback }) => {
   );
 };
 
-Feedback.propTypes = {
+FeedbackActions.propTypes = {
   options: PropTypes.array.isRequired,
   onSaveFeedback: PropTypes.func.isRequired,
 };
 
-export default Feedback;
+export default FeedbackActions;

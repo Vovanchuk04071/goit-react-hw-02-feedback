@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Feedback from "./Components/Feedback/Feedback";
+import FeedbackActions from "./Components/Feedback/Feedback";
 import Statistics from "./Components/Statistics/Statistics";
 import SectionTitle from "./Components/SectionTitle/SectionTitle";
 
@@ -10,7 +10,7 @@ class App extends Component {
     bad: 0,
   };
 
-  saveFeedback = (name) => () => {
+  handleSaveFeedback = (name) => () => {
     this.setState((prevState) => {
       return { [name]: (prevState[name] += 1) };
     });
@@ -19,31 +19,29 @@ class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
 
-    const countTotalFeedback = () => {
-      return good + neutral + bad;
-    };
+    const countTotalFeedback = good + neutral + bad;
 
-    const countPositiveFeedbackPercentage = () => {
-      return Math.round((good * 100) / (neutral + bad + good));
-    };
+    const countPositiveFeedbackPercentage = Math.round(
+      (good * 100) / (neutral + bad + good)
+    );
 
     return (
       <>
         <SectionTitle title="Please leave feedback">
-          <Feedback
+          <FeedbackActions
             options={Object.keys(this.state)}
-            onSaveFeedback={this.saveFeedback}
+            onSaveFeedback={this.handleSaveFeedback}
           />
         </SectionTitle>
         <SectionTitle title="Statistics">
-          {countTotalFeedback() > 0 ? (
+          {countTotalFeedback > 0 ? (
             <>
               <Statistics
                 good={good}
                 neutral={neutral}
                 bad={bad}
-                total={countTotalFeedback()}
-                positiveFeedbackPercentage={countPositiveFeedbackPercentage()}
+                total={countTotalFeedback}
+                positiveFeedbackPercentage={countPositiveFeedbackPercentage}
               />
             </>
           ) : (

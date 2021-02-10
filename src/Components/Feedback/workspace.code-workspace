@@ -6,6 +6,9 @@
 		{
 			"name": "react",
 			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../goit-react-hw-02-phonebook"
 		}
 	],
 	"settings": {}
