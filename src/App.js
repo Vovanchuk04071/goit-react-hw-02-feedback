@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FeedbackActions from "./Components/Feedback/Feedback";
 import Statistics from "./Components/Statistics/Statistics";
-import SectionTitle from "./Components/SectionTitle/SectionTitle";
+import Section from "./Components/SectionTitle/SectionTitle";
 
 class App extends Component {
   state = {
@@ -27,13 +27,13 @@ class App extends Component {
 
     return (
       <>
-        <SectionTitle title="Please leave feedback">
+        <Section title="Please leave feedback">
           <FeedbackActions
             options={Object.keys(this.state)}
             onSaveFeedback={this.handleSaveFeedback}
           />
-        </SectionTitle>
-        <SectionTitle title="Statistics">
+        </Section>
+        <Section title="Statistics">
           {countTotalFeedback > 0 ? (
             <>
               <Statistics
@@ -47,7 +47,7 @@ class App extends Component {
           ) : (
             <p>No feedback given</p>
           )}
-        </SectionTitle>
+        </Section>
       </>
     );
   }
